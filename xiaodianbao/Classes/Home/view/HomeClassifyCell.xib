@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="226" id="KGk-i7-Jjw" customClass="HomeClassifyCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="226"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="225.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="—  精选探店  —" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOb-gc-y2x">
+                        <rect key="frame" x="8" y="28" width="304" height="9.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.92941176469999998" green="0.23137254900000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="featured store" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRG-3i-gdq">
+                        <rect key="frame" x="8" y="39.5" width="304" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYt-GF-Bkv">
+                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CX-8t-2Kt">
+                        <rect key="frame" x="0.0" y="207.5" width="320" height="10"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="2YM-ix-hjv"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gkz-dZ-avw">
+                        <rect key="frame" x="0.0" y="47.5" width="320" height="160"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="gkz-dZ-avw" secondAttribute="height" multiplier="2:1" id="Kbl-DO-sYo"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Vbd-g0-Fa8">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oOb-gc-y2x" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="4iM-wp-pfy"/>
+                    <constraint firstItem="4CX-8t-2Kt" firstAttribute="top" secondItem="gkz-dZ-avw" secondAttribute="bottom" id="5XS-6y-dWE"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4CX-8t-2Kt" secondAttribute="trailing" constant="-8" id="7Rg-Ub-2tG"/>
+                    <constraint firstItem="gkz-dZ-avw" firstAttribute="top" secondItem="XRG-3i-gdq" secondAttribute="bottom" constant="8" id="8IA-Lq-L5C"/>
+                    <constraint firstItem="oOb-gc-y2x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="8vt-lU-ONO"/>
+                    <constraint firstItem="XRG-3i-gdq" firstAttribute="top" secondItem="oOb-gc-y2x" secondAttribute="bottom" constant="2" id="90C-vE-b80"/>
+                    <constraint firstItem="4CX-8t-2Kt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="ELX-WR-Pwe"/>
+                    <constraint firstItem="gkz-dZ-avw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="TKJ-Lg-v6d"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="4CX-8t-2Kt" secondAttribute="bottom" id="Ve3-96-Qq5"/>
+                    <constraint firstItem="XRG-3i-gdq" firstAttribute="trailing" secondItem="oOb-gc-y2x" secondAttribute="trailing" id="Yg9-l7-JjY"/>
+                    <constraint firstItem="XRG-3i-gdq" firstAttribute="leading" secondItem="oOb-gc-y2x" secondAttribute="leading" id="iAj-9L-uk7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="gkz-dZ-avw" secondAttribute="trailing" constant="-8" id="sUj-Uq-au8"/>
+                    <constraint firstItem="oOb-gc-y2x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="zrr-yb-hka"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="collectionView" destination="gkz-dZ-avw" id="q3K-VP-8S4"/>
+                <outlet property="layout" destination="Vbd-g0-Fa8" id="c7D-AQ-o46"/>
+            </connections>
+            <point key="canvasLocation" x="515" y="597"/>
+        </tableViewCell>
+    </objects>
+</document>

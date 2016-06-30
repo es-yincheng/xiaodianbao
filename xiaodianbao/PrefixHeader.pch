@@ -1,0 +1,76 @@
+//
+//  PrefixHeader.pch
+//  xiaodianbao
+//
+//  Created by 尹成 on 16/6/30.
+//  Copyright © 2016年 尹成. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//宏定义
+#define DefaultTag      10000
+
+//height
+#define ScreenWith   [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#define NVH         44
+#define SBH         20
+#define TBH         49
+
+//color
+#define RGBCOLOR(r,g,b)    [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
+//block
+#define WEAKSELF typeof(self) __weak weakSelf = self;
+#define STRONGSELF typeof(weakSelf) __strong strongSelf = weakSelf;
+
+#define Dedug 1
+// 日志打印
+#if Dedug
+#define YCLog(fmt, ...) NSLog((@"%@ : " fmt), NSStringFromClass([self class]), ##__VA_ARGS__)
+#else
+#define YCLog(...)
+#endif
+
+
+//FIXME: 建议以后将所有颜色（即使是系统颜色）提出出来，方便统一更换风格
+
+//custom
+#define ScreenWithOutBarsSize   CGRectMake(0, 0, ScreenWith, ScreenHeight-64-49)
+#define ScreenWithOutNavSize    CGRectMake(0, 0, ScreenWith, ScreenHeight-64)
+
+
+//---------------------------color---------------------------------
+#define IBZItemColor       RGBCOLOR(216, 87, 77)
+
+#define IBZBlackColor     [UIColor colorWithWhite:0.200 alpha:1.000]
+#define IBZGrayColor      [UIColor colorWithWhite:0.400 alpha:1.000]
+#define IBZLightGrayColor [UIColor colorWithWhite:0.600 alpha:1.000]
+
+#define IBZButtonDisableColor   IBZLightGrayColor
+#define IBZCellLineColor        [UIColor colorWithWhite:0.941 alpha:1.000]
+#define IBZViewBackColor        IBZCellLineColor
+//-----------------------------------------------------------------
+//
+//#define UmengAPK        @"56f39014e0f55a150400091f"
+//#define QQAPID          @"1105215427"
+//#define QQAPK           @"DoKCZQCccvUeRjYs"
+//#define WeiboAPK        @"2378526363"
+//#define WeiboSecret     @"a363cc3ce19a5f533cb062d65a39bc1f"
+
+
+
+
+////头文件
+#import "MBProgressHUD+MJ.h"
+#import "UIImageView+WebCache.h"
+#import "BaseAPI.h"
+#import "Category.h"
+//#import "Function.h"
+//#import "NetWorking.h"
+
+#endif /* PrefixHeader_pch */

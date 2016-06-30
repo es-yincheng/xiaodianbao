@@ -3,13 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--探店-->
         <scene sceneID="b4W-20-csf">
             <objects>
                 <navigationController id="IMx-Vc-cQQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="探店" id="UM3-w7-AVa"/>
+                    <tabBarItem key="tabBarItem" title="探店" image="TB_reivew_exploration_grey" selectedImage="TB_reivew_exploration" id="UM3-w7-AVa"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="H2i-e9-TzZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -49,7 +50,7 @@
         <scene sceneID="xuk-cW-y3b">
             <objects>
                 <navigationController id="nFl-B5-Pzi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" id="4cq-Yc-xne"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="TB_me_grey" selectedImage="TB_me" id="4cq-Yc-xne"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AhE-8c-lBK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -77,7 +78,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="我的小店" id="7i2-gU-9T6">
-                        <barButtonItem key="backBarButtonItem" title=" " id="WoP-Ou-cbz"/>
+                        <barButtonItem key="backBarButtonItem" id="WoP-Ou-cbz"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -88,7 +89,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="gkV-sl-48i">
             <objects>
-                <tabBarController id="rgR-ks-tx5" sceneMemberID="viewController">
+                <tabBarController id="rgR-ks-tx5" customClass="YCTabBarController" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="aLD-0X-xSV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -110,7 +111,7 @@
         <scene sceneID="1rA-A1-xgj">
             <objects>
                 <navigationController id="YYQ-2T-ZFd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="找宝店" id="hdJ-rQ-AZb"/>
+                    <tabBarItem key="tabBarItem" title="找宝店" image="TB_store_grey" selectedImage="TB_store" id="hdJ-rQ-AZb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z3V-hS-9cT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -127,7 +128,7 @@
         <!--找店宝-->
         <scene sceneID="zN3-9t-p9p">
             <objects>
-                <viewController id="LK7-6T-tis" sceneMemberID="viewController">
+                <viewController id="LK7-6T-tis" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pq5-Dx-3AZ"/>
                         <viewControllerLayoutGuide type="bottom" id="Ksr-tb-fLL"/>
@@ -135,12 +136,32 @@
                     <view key="view" contentMode="scaleToFill" id="1rn-sN-VX5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-8E-y9M">
+                                <rect key="frame" x="-12" y="0.0" width="399" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="LK7-6T-tis" id="6Jf-df-m91"/>
+                                    <outlet property="delegate" destination="LK7-6T-tis" id="Mlw-l0-uY4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ksr-tb-fLL" firstAttribute="top" secondItem="LuL-8E-y9M" secondAttribute="bottom" constant="-49" id="6U5-IT-Go6"/>
+                            <constraint firstItem="LuL-8E-y9M" firstAttribute="leading" secondItem="1rn-sN-VX5" secondAttribute="leadingMargin" constant="-28" id="Z9e-Mo-y1X"/>
+                            <constraint firstItem="LuL-8E-y9M" firstAttribute="top" secondItem="pq5-Dx-3AZ" secondAttribute="bottom" constant="-64" id="ajP-jI-A3h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LuL-8E-y9M" secondAttribute="trailing" constant="-28" id="gyA-5U-TZL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="找店宝" id="QvL-NO-I0j">
                         <barButtonItem key="backBarButtonItem" title=" " id="DrP-Z2-BP1"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="LuL-8E-y9M" id="Ge4-Iz-D3c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcT-ys-yb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,7 +171,7 @@
         <scene sceneID="L8m-yp-oYS">
             <objects>
                 <navigationController id="WWi-tC-yEQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="找宝贝" id="8pH-ii-O4O"/>
+                    <tabBarItem key="tabBarItem" title="找宝贝" image="TB_look_around_grey" selectedImage="TB_look_around" id="8pH-ii-O4O"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bUy-Sn-mzJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -187,4 +208,14 @@
             <point key="canvasLocation" x="1508.5" y="-217.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TB_look_around" width="20" height="21"/>
+        <image name="TB_look_around_grey" width="20" height="21"/>
+        <image name="TB_me" width="21" height="21"/>
+        <image name="TB_me_grey" width="21" height="21"/>
+        <image name="TB_reivew_exploration" width="21" height="21"/>
+        <image name="TB_reivew_exploration_grey" width="21" height="21"/>
+        <image name="TB_store" width="24" height="21"/>
+        <image name="TB_store_grey" width="24" height="21"/>
+    </resources>
 </document>
