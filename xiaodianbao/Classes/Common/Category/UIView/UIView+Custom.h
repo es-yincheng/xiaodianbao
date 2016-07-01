@@ -7,24 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "FileOwner.h"
-//#import "BaseViewController.h"
 
 @interface UIView (Custom)
 
-//@property (nonatomic ,strong) BaseViewController *viewController;
-//
-//
-////得到view 所在 的  controller
-//-(void)setViewController:(BaseViewController *)viewController;
-//-(BaseViewController *)getViewController;
-//// 判断View是否显示在屏幕上
-//- (BOOL)isDisplayedInScreen;
-//
-//
-////通过nib 加载 view
-//+ (id)loadFromNib;
-//+ (id)loadFromNibNamed:(NSString*) nibName;
-//+ (id)loadFromNibNoOwner;
+@property (nonatomic ,strong) UIViewController *viewController;
+
+- (void)setViewController:(UIViewController *)viewController;
+- (UIViewController *)getViewController;
 
 @end

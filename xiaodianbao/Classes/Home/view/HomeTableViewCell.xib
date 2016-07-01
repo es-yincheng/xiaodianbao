@@ -15,19 +15,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DkK-j4-PY3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                    </imageView>
+                    <button opaque="NO" tag="7000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzB-Vb-Veh">
+                        <rect key="frame" x="8" y="0.0" width="304" height="43.5"/>
+                        <connections>
+                            <action selector="jumpAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nbU-96-AkM"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="DkK-j4-PY3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="Ogm-28-cYo"/>
-                    <constraint firstItem="DkK-j4-PY3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="mec-za-nZV"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="DkK-j4-PY3" secondAttribute="bottom" constant="-8" id="o4E-ba-jC6"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="DkK-j4-PY3" secondAttribute="trailing" constant="-8" id="vRn-p0-hbg"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="CzB-Vb-Veh" secondAttribute="bottom" constant="-8" id="3IP-bQ-s5q"/>
+                    <constraint firstItem="CzB-Vb-Veh" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="JES-GK-TnL"/>
+                    <constraint firstItem="CzB-Vb-Veh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="kwp-op-wdT"/>
+                    <constraint firstItem="CzB-Vb-Veh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="tqo-ao-qTc"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imageButton" destination="DkK-j4-PY3" id="j5f-eO-tVR"/>
+                <outlet property="imageButton" destination="CzB-Vb-Veh" id="Ioh-JB-r5d"/>
             </connections>
         </tableViewCell>
     </objects>

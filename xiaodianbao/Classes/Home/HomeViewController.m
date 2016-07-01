@@ -9,10 +9,8 @@
 #import "HomeViewController.h"
 #import "HomeTableViewCell.h"
 #import "HomeModel.h"
-//#import "HomeHeaderCell.h"
-//#import "HomeTDCell.h"
-//#import "HomeClassifyCell.h"
-//#import "HomeFeedsCell.h"
+#import "ThreeItemsCell.h"
+#import "ClassifyCell.h"
 
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -54,15 +52,13 @@
 
 - (void)setTableView{
     
-//    self.tableView.estimatedRowHeight = 200;
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
-//
-//    [self.tableView registerNib:[UINib nibWithNibName:@"HomeHeaderCell" bundle:nil] forCellReuseIdentifier:@"HomeHeaderCell"];
-//    [self.tableView registerNib:[UINib nibWithNibName:@"HomeTDCell" bundle:nil] forCellReuseIdentifier:@"HomeTDCell"];
-//    [self.tableView registerNib:[UINib nibWithNibName:@"HomeClassifyCell" bundle:nil] forCellReuseIdentifier:@"HomeClassifyCell"];
-//    [self.tableView registerNib:[UINib nibWithNibName:@"HomeFeedsCell" bundle:nil] forCellReuseIdentifier:@"HomeFeedsCell"];
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"HomeTableViewCell" bundle:nil] forCellReuseIdentifier:@"HomeTableViewCell"];
+
+    [self.tableView registerNib:[UINib nibWithNibName:@"ThreeItemsCell" bundle:nil] forCellReuseIdentifier:@"ThreeItemsCell"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ClassifyCell" bundle:nil]
+         forCellReuseIdentifier:@"ClassifyCell"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,19 +77,30 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"heights:%lu",(unsigned long)self.cellHeights.count);
-    return ScreenWith/[[self.cellHeights objectAtIndex:indexPath.row] floatValue];
+    return [[self.cellHeights objectAtIndex:indexPath.row] floatValue];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    HomeTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HomeTableViewCell"];
     HomeModel *model = [self.dataSource objectAtIndex:indexPath.row];
-    [cell.imageButton sd_setImageWithURL:[NSURL URLWithString:[model.images objectAtIndex:0]]
-                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-    }];
+    if (model.images.count == 3) {
+        ThreeItemsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ThreeItemsCell"];
+        [cell configCellWithModel:model];
+        return cell;
+    }
     
-    return cell;
+    else if (model.images.count == 8){
+        ClassifyCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ClassifyCell"];
+        cell.backgroundColor = ((NSInteger)indexPath.row % 2 == 0 ? [UIColor lightGrayColor] : [UIColor whiteColor]);
+        [cell configCellWithModel:model];
+        return cell;
+    }
+    
+    else {
+        HomeTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HomeTableViewCell"];
+        cell.backgroundColor = ((NSInteger)indexPath.row % 2 == 0 ? [UIColor lightGrayColor] : [UIColor whiteColor]);
+        [cell configCellWithModel:model];
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -111,55 +118,78 @@
 
 - (NSMutableArray *)cellHeights{
     if (!_cellHeights) {
+
         NSArray *tempArray = @[
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",3/1],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/220],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/220],
-                               [NSString stringWithFormat:@"%d",1242/20],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith/3],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*220/1242],
                                
-                               [NSString stringWithFormat:@"%d",1242/230],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",3/1],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/20],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*220/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*230/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
                                
-                               [NSString stringWithFormat:@"%d",1242/230],
-                               [NSString stringWithFormat:@"%d",4/1],
+                               [NSString stringWithFormat:@"%lf",ScreenWith/3],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*230/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith/2],
                                
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/230],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*230/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
                                
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
-                               [NSString stringWithFormat:@"%d",1242/20],
-                               [NSString stringWithFormat:@"%d",1242/704],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*20/1242],
+                               [NSString stringWithFormat:@"%lf",ScreenWith*704/1242],
                                ];
         _cellHeights = [[NSMutableArray alloc] initWithArray:tempArray];
     }

@@ -10,8 +10,9 @@
 
 @interface HomeModel : NSObject
 
-@property (nonatomic, strong) NSArray *images;
-@property (nonatomic, assign) CGFloat  height;
+@property (nonatomic, assign) NSInteger type;
+@property (nonatomic, strong) NSArray  *images;
+@property (nonatomic, strong) NSArray  *links;
 
 + (NSMutableArray *)yc_objectWithKeyValues:(id)keyValues;
 

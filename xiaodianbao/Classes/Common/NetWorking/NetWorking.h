@@ -27,6 +27,8 @@ typedef NS_ENUM(NSInteger, NetworkStatus) {
 @property (nonatomic, copy) SuccessBlock  success;
 @property (nonatomic, copy) FailureBlock  failure;
 
+@property (nonatomic, strong) MBProgressHUD *hud;
+
 + (NetWorking *_Nonnull)sharedNetWorking;
 + (NetworkStatus)getNetWorkStatuCode;
 + (NSString *_Nonnull)getNetWorkStatuString;

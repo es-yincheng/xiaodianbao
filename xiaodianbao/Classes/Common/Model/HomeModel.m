@@ -25,24 +25,16 @@
     
         for (NSDictionary *dicts in [keyValues objectForKey:@"data"]) {
             HomeModel *model = [[HomeModel alloc] init];
+            model.type = [[dicts objectForKey:@"type"] integerValue];
             NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+            NSMutableArray *templinks = [[NSMutableArray alloc] init];
             for (NSDictionary *dict in [dicts objectForKey:@"items"]) {
                [tempArray addObject:[[dict objectForKey:@"image"] objectForKey:@"url"]];
+                [templinks addObject:[dict objectForKey:@"scheme"]];
             }
             model.images = tempArray;
-            
-            if (model.images.count > 1) {
-                model.height = ScreenWith/3;
-            }
-            if ([[dicts objectForKey:@"type"] isEqualToString:@"2"] ||
-                [[dicts objectForKey:@"type"] integerValue] == 2) {
-                model.height = ScreenWith*704/1242;
-            }
-            if ([[dicts objectForKey:@"type"] isEqualToString:@"5"] ||
-                [[dicts objectForKey:@"type"] integerValue] == 5) {
-                model.height = ScreenWith*20/1242;
-            }
-            
+            model.links = templinks;
+
             [models addObject:model];
         }
     return models;

@@ -87,11 +87,16 @@ parameters:(NSDictionary *)parameters
    success:(SuccessBlock)success
    failure:(FailureBlock)failure{
 
-    UIActivityIndicatorView *busyView = [[UIActivityIndicatorView alloc] init];
-    busyView.center = [[UIApplication sharedApplication].delegate window].center;
-    [[[UIApplication sharedApplication].delegate window] addSubview:busyView];
-    [busyView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
-    [busyView startAnimating];
+    
+    
+//    UIActivityIndicatorView *busyView = [[UIActivityIndicatorView alloc] init];
+//    busyView.center = [[UIApplication sharedApplication].delegate window].center;
+//    [[[UIApplication sharedApplication].delegate window] addSubview:busyView];
+//    [busyView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+//    [busyView startAnimating];
+
+    [self showHUD];
+    
     [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:YES];
     
 //    NSString *urlString = @"http://www.ushopal.com/api/v3/c-client/store-operating-config?city_id=-1&project_code=blackwidow&version=2.0.7";
@@ -101,12 +106,13 @@ parameters:(NSDictionary *)parameters
     //异步连接
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
      {
+         [self hiddenHUD];
          [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:NO];
          NSDictionary *databackDict;
          if (!connectionError)
          {
-             [busyView stopAnimating];
-             [busyView removeFromSuperview];
+//             [busyView stopAnimating];
+//             [busyView removeFromSuperview];
              databackDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
              if (success) {
                  success(databackDict);
@@ -114,8 +120,8 @@ parameters:(NSDictionary *)parameters
                  NSLog(@"统一处理成功数据：%@",databackDict);
              }
          } else {
-             [busyView stopAnimating];
-             [busyView removeFromSuperview];
+//             [busyView stopAnimating];
+//             [busyView removeFromSuperview];
              if (failure) {
                  failure(connectionError);
              } else {
@@ -124,44 +130,25 @@ parameters:(NSDictionary *)parameters
              }
          }
      }];
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-////    NSString *urlString = [NSString stringWithFormat:@"%@%@",BaseURL,method];
-//    NSString *urlString = @"http://www.ushopal.com/api/v3/c-client/store-operating-config?city_id=-1&project_code=blackwidow&version=2.0.7";
-//    
-//    [manager POST:urlString parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
-//        
-//        
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        [busyView stopAnimating];
-//        [busyView removeFromSuperview];
-//        if (success) {
-//            success(task, responseObject);
-//        } else {
-//            NSLog(@"统一处理成功数据：%@",responseObject);
-//        }
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        [busyView stopAnimating];
-//        [busyView removeFromSuperview];
-//        if (failure) {
-//            failure(task, error);
-//        } else {
-//            NSLog(@"error:%@",error);
-//            [MBProgressHUD showMessageAuto:@"网络连接失败，稍后再试"];
-//        }
-//    }];
+}
+
+- (MBProgressHUD *)hud{
+    if (!_hud) {
+        UIView *view = [[UIApplication sharedApplication].windows lastObject];
+        _hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    }
+    return _hud;
 }
 
 
+- (void)showHUD{
+    [self hud];
+}
+
+- (void)hiddenHUD{
+    [self.hud removeFromSuperview];
+    self.hud = nil;
+}
 
 //-(void)post:(NSString *)method
 // parameters:(NSDictionary *)parameters

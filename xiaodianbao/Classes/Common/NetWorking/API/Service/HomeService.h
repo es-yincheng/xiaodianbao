@@ -21,4 +21,15 @@ typedef enum : NSUInteger {
                     success:(SuccessBlock)success
                     failure:(FailureBlock)failure;
 
+- (void)getSpotsDataWithCity:(City)city
+                    distance:(NSString *)distance
+                    category:(NSString *)category
+                    success:(SuccessBlock)success
+                    failure:(FailureBlock)failure;
+
+- (void)getStoreDataWithCity:(City)city
+                     storeId:(NSString *)sotreId
+                     success:(SuccessBlock)success
+                     failure:(FailureBlock)failure;
+
 @end

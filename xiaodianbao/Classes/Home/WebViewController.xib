@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="bem-br-5q2" id="rik-6Y-2p6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bem-br-5q2">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="670"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </webView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hr3-tr-jmZ">
+                    <rect key="frame" x="0.0" y="600" width="600" height="70"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="lQB-aJ-vzD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="hr3-tr-jmZ" firstAttribute="trailing" secondItem="bem-br-5q2" secondAttribute="trailing" id="1Ml-z4-cak"/>
+                <constraint firstAttribute="trailing" secondItem="bem-br-5q2" secondAttribute="trailing" id="42u-1L-nHO"/>
+                <constraint firstItem="bem-br-5q2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7TL-5u-TXj"/>
+                <constraint firstAttribute="bottom" secondItem="bem-br-5q2" secondAttribute="bottom" constant="-70" id="XDV-kv-Xw5"/>
+                <constraint firstItem="hr3-tr-jmZ" firstAttribute="leading" secondItem="bem-br-5q2" secondAttribute="leading" id="bJ0-Lx-X4o"/>
+                <constraint firstItem="hr3-tr-jmZ" firstAttribute="bottom" secondItem="bem-br-5q2" secondAttribute="bottom" id="xsL-1M-zBO"/>
+                <constraint firstItem="bem-br-5q2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zPU-WP-9z8"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
