@@ -52,9 +52,11 @@
 
 - (void)setTableView{
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"HomeTableViewCell" bundle:nil] forCellReuseIdentifier:@"HomeTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HomeTableViewCell" bundle:nil]
+         forCellReuseIdentifier:@"HomeTableViewCell"];
 
-    [self.tableView registerNib:[UINib nibWithNibName:@"ThreeItemsCell" bundle:nil] forCellReuseIdentifier:@"ThreeItemsCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ThreeItemsCell" bundle:nil]
+         forCellReuseIdentifier:@"ThreeItemsCell"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ClassifyCell" bundle:nil]
          forCellReuseIdentifier:@"ClassifyCell"];

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5053829ACFD45A0E5C41D047 /* libPods-xiaodianbao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 264C276644597D089EB07F42 /* libPods-xiaodianbao.a */; };
+		580E9F9E1D276B9500322FC8 /* ZBBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580E9F9D1D276B9500322FC8 /* ZBBViewController.m */; };
+		580E9FA31D2786B000322FC8 /* ZBBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 580E9FA11D2786B000322FC8 /* ZBBCell.m */; };
+		580E9FA41D2786B000322FC8 /* ZBBCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 580E9FA21D2786B000322FC8 /* ZBBCell.xib */; };
+		580E9FA71D27972E00322FC8 /* ZBBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 580E9FA61D27972E00322FC8 /* ZBBModel.m */; };
 		58575CF71D26027B009B15B0 /* ThreeItemsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58575CF51D26027B009B15B0 /* ThreeItemsCell.m */; };
 		58575CF81D26027B009B15B0 /* ThreeItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58575CF61D26027B009B15B0 /* ThreeItemsCell.xib */; };
 		58575CFC1D2603D4009B15B0 /* ClassifyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58575CFA1D2603D4009B15B0 /* ClassifyCell.m */; };
@@ -311,6 +315,13 @@
 /* Begin PBXFileReference section */
 		08F073B70FDB702F344483EB /* Pods-xiaodianbao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xiaodianbao.release.xcconfig"; path = "Pods/Target Support Files/Pods-xiaodianbao/Pods-xiaodianbao.release.xcconfig"; sourceTree = "<group>"; };
 		264C276644597D089EB07F42 /* libPods-xiaodianbao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xiaodianbao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		580E9F9C1D276B9500322FC8 /* ZBBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBViewController.h; sourceTree = "<group>"; };
+		580E9F9D1D276B9500322FC8 /* ZBBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBViewController.m; sourceTree = "<group>"; };
+		580E9FA01D2786B000322FC8 /* ZBBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBCell.h; sourceTree = "<group>"; };
+		580E9FA11D2786B000322FC8 /* ZBBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBCell.m; sourceTree = "<group>"; };
+		580E9FA21D2786B000322FC8 /* ZBBCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBBCell.xib; sourceTree = "<group>"; };
+		580E9FA51D27972E00322FC8 /* ZBBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBModel.h; sourceTree = "<group>"; };
+		580E9FA61D27972E00322FC8 /* ZBBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBModel.m; sourceTree = "<group>"; };
 		58575CF41D26027B009B15B0 /* ThreeItemsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeItemsCell.h; sourceTree = "<group>"; };
 		58575CF51D26027B009B15B0 /* ThreeItemsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeItemsCell.m; sourceTree = "<group>"; };
 		58575CF61D26027B009B15B0 /* ThreeItemsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreeItemsCell.xib; sourceTree = "<group>"; };
@@ -668,6 +679,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		580E9F991D2762C800322FC8 /* TD */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TD;
+			sourceTree = "<group>";
+		};
+		580E9F9A1D2762C800322FC8 /* ZBB */ = {
+			isa = PBXGroup;
+			children = (
+				580E9F9F1D276C1B00322FC8 /* view */,
+				580E9F9C1D276B9500322FC8 /* ZBBViewController.h */,
+				580E9F9D1D276B9500322FC8 /* ZBBViewController.m */,
+			);
+			path = ZBB;
+			sourceTree = "<group>";
+		};
+		580E9F9B1D2762E400322FC8 /* my */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = my;
+			sourceTree = "<group>";
+		};
+		580E9F9F1D276C1B00322FC8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				580E9FA01D2786B000322FC8 /* ZBBCell.h */,
+				580E9FA11D2786B000322FC8 /* ZBBCell.m */,
+				580E9FA21D2786B000322FC8 /* ZBBCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		58D8929D1D24AC100026556C /* Reasource */ = {
 			isa = PBXGroup;
 			children = (
@@ -906,6 +951,9 @@
 		58D8948A1D24B2690026556C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				580E9F9B1D2762E400322FC8 /* my */,
+				580E9F991D2762C800322FC8 /* TD */,
+				580E9F9A1D2762C800322FC8 /* ZBB */,
 				58D894911D24B4D10026556C /* Common */,
 				58D8948B1D24B2790026556C /* Home */,
 			);
@@ -1025,6 +1073,8 @@
 				58D894DE1D25100D0026556C /* HomeModel.m */,
 				58575D0D1D264AAD009B15B0 /* SpostModel.h */,
 				58575D0E1D264AAD009B15B0 /* SpostModel.m */,
+				580E9FA51D27972E00322FC8 /* ZBBModel.h */,
+				580E9FA61D27972E00322FC8 /* ZBBModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1539,6 +1589,7 @@
 				58D894421D24AC110026556C /* 悬浮咨询_77x68_@1x.png in Resources */,
 				58D893EB1D24AC110026556C /* TableViewArrow@2x.png in Resources */,
 				58575CF81D26027B009B15B0 /* ThreeItemsCell.xib in Resources */,
+				580E9FA41D2786B000322FC8 /* ZBBCell.xib in Resources */,
 				58D894371D24AC110026556C /* 店标_16x16_@2x.png in Resources */,
 				58D894801D24AC110026556C /* 预图标_15x18_@2x.png in Resources */,
 				58D893E81D24AC110026556C /* share_icon_wechatTimeLine_50x50_@2x.png in Resources */,
@@ -1678,6 +1729,7 @@
 				58D895121D251BAA0026556C /* NSArray+Custom.m in Sources */,
 				58D894CB1D2505430026556C /* BaseService.m in Sources */,
 				58D894DF1D25100D0026556C /* HomeModel.m in Sources */,
+				580E9FA31D2786B000322FC8 /* ZBBCell.m in Sources */,
 				58D8951C1D251BAA0026556C /* UIImageView+SelectPhoto.m in Sources */,
 				58D895151D251BAA0026556C /* NSMutableDictionary+Custom.m in Sources */,
 				58D895161D251BAA0026556C /* NSObject+Custom.m in Sources */,
@@ -1691,6 +1743,7 @@
 				58FAB1291D23C77D002DC970 /* main.m in Sources */,
 				58575D0B1D2640EA009B15B0 /* GoodsCell.m in Sources */,
 				58D894E31D25159C0026556C /* HomeTableViewCell.m in Sources */,
+				580E9F9E1D276B9500322FC8 /* ZBBViewController.m in Sources */,
 				58D8951D1D251BAA0026556C /* UIImageView+SetImage.m in Sources */,
 				58D8951B1D251BAA0026556C /* UIImage+Random.m in Sources */,
 				58D895211D251BAA0026556C /* UIViewController+Custom.m in Sources */,
@@ -1702,6 +1755,7 @@
 				58D8948F1D24B2860026556C /* HomeViewController.m in Sources */,
 				58D895201D251BAA0026556C /* UIView+Custom.m in Sources */,
 				58D895181D251BAA0026556C /* UIButton+Custom.m in Sources */,
+				580E9FA71D27972E00322FC8 /* ZBBModel.m in Sources */,
 				58575CF71D26027B009B15B0 /* ThreeItemsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

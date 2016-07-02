@@ -32,4 +32,10 @@ typedef enum : NSUInteger {
                      success:(SuccessBlock)success
                      failure:(FailureBlock)failure;
 
+- (void)getZBBDataWithCity:(City)city
+                     pageIndex:(NSInteger)pageIndex
+                     success:(SuccessBlock)success
+                     failure:(FailureBlock)failure;
+
+
 @end
