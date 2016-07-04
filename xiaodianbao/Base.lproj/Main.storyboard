@@ -27,7 +27,7 @@
         <!--探店-->
         <scene sceneID="Rot-iG-jfg">
             <objects>
-                <viewController id="3ka-Cr-koZ" sceneMemberID="viewController">
+                <viewController id="3ka-Cr-koZ" customClass="TDViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MTS-Eg-YKD"/>
                         <viewControllerLayoutGuide type="bottom" id="zCw-FM-khj"/>
@@ -35,12 +35,27 @@
                     <view key="view" contentMode="scaleToFill" id="Dql-Lp-Cf8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UvW-wA-L0x">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="UvW-wA-L0x" secondAttribute="trailing" constant="-20" id="L9L-x1-ga5"/>
+                            <constraint firstItem="UvW-wA-L0x" firstAttribute="bottom" secondItem="Dql-Lp-Cf8" secondAttribute="bottomMargin" id="Xzf-RT-8lZ"/>
+                            <constraint firstItem="UvW-wA-L0x" firstAttribute="top" secondItem="Dql-Lp-Cf8" secondAttribute="topMargin" id="fml-ez-JFz"/>
+                            <constraint firstItem="UvW-wA-L0x" firstAttribute="leading" secondItem="Dql-Lp-Cf8" secondAttribute="leadingMargin" constant="-20" id="s71-fC-zso"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="探店" id="KDF-cv-hUy">
                         <barButtonItem key="backBarButtonItem" title=" " id="d5e-DZ-LDv"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="UvW-wA-L0x" id="fLd-6b-PJH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xe-Wt-48m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,17 +212,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xL1-3M-m6q">
-                                <rect key="frame" x="-4" y="64" width="383" height="554"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xL1-3M-m6q">
+                                <rect key="frame" x="-8" y="0.0" width="391" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xL1-3M-m6q" firstAttribute="leading" secondItem="EOh-YR-cyN" secondAttribute="leadingMargin" constant="-20" id="MiY-LY-pjl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xL1-3M-m6q" secondAttribute="trailing" constant="-20" id="PlO-gy-Hat"/>
-                            <constraint firstItem="yOw-42-BYt" firstAttribute="top" secondItem="xL1-3M-m6q" secondAttribute="bottom" id="Svd-mo-Mgo"/>
-                            <constraint firstItem="xL1-3M-m6q" firstAttribute="top" secondItem="RNW-OD-gaR" secondAttribute="bottom" id="oiA-SC-moD"/>
+                            <constraint firstItem="xL1-3M-m6q" firstAttribute="leading" secondItem="EOh-YR-cyN" secondAttribute="leadingMargin" constant="-24" id="MiY-LY-pjl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xL1-3M-m6q" secondAttribute="trailing" constant="-24" id="PlO-gy-Hat"/>
+                            <constraint firstItem="yOw-42-BYt" firstAttribute="top" secondItem="xL1-3M-m6q" secondAttribute="bottom" constant="-49" id="Svd-mo-Mgo"/>
+                            <constraint firstItem="xL1-3M-m6q" firstAttribute="top" secondItem="RNW-OD-gaR" secondAttribute="bottom" constant="-64" id="oiA-SC-moD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="找宝贝" id="RDF-8d-6mh">

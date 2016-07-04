@@ -9,6 +9,7 @@
 #import "ZBBViewController.h"
 #import "WebViewController.h"
 #import "ZBBCell.h"
+#import "ZBBModel.h"
 
 @interface ZBBViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSInteger pageIndex;
@@ -24,9 +25,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setTableView];
+    
     pageIndex = 0;
     
     [self getMoreData];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,7 +50,10 @@
 - (void)getMoreData{
     [[BaseAPI sharedAPI].homeService getZBBDataWithCity:CityShanghai
                                               pageIndex:pageIndex success:^(NSDictionary *resultDict) {
-                                                  
+                                                  if (pageIndex == 0) {
+                                                      self.dataSource = [ZBBModel yc_objectWithKeyValues:resultDict];
+                                                      [self.tableView reloadData];
+                                                  }
                                               } failure:^(NSError *error) {
                                                   
                                               }];
@@ -65,7 +81,9 @@
     ZBBModel *model = [self.dataSource objectAtIndex:indexPath.row];
     WebViewController *webVC = [[WebViewController alloc] init];
     webVC.urlString = model.webUrl;
+    self.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:webVC animated:YES];
+    self.hidesBottomBarWhenPushed=NO;
 }
 
 - (NSMutableArray *)dataSource{

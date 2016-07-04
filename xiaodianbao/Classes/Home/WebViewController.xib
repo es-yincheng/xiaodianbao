@@ -3,10 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController">
             <connections>
+                <outlet property="payAttentionButton" destination="ylE-C6-bF9" id="wsC-87-fKa"/>
+                <outlet property="tabbar" destination="1p7-Jx-3MB" id="Sjn-r1-tVZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="bem-br-5q2" id="rik-6Y-2p6"/>
             </connections>
@@ -27,6 +30,36 @@
                         <constraint firstAttribute="height" constant="70" id="lQB-aJ-vzD"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1p7-Jx-3MB">
+                    <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBM-r6-w5D">
+                            <rect key="frame" x="8" y="11" width="379.5" height="28"/>
+                            <color key="backgroundColor" red="0.94901960780000005" green="0.23529411759999999" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="预约进店">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylE-C6-bF9">
+                            <rect key="frame" x="402.5" y="11" width="189.5" height="28"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="关注">
+                                <color key="titleColor" red="0.94901960780000005" green="0.23529411759999999" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="FBM-r6-w5D" firstAttribute="centerY" secondItem="1p7-Jx-3MB" secondAttribute="centerY" id="Cln-ab-9i8"/>
+                        <constraint firstItem="ylE-C6-bF9" firstAttribute="width" secondItem="FBM-r6-w5D" secondAttribute="width" multiplier="1:2" id="Dz8-sy-lgu"/>
+                        <constraint firstItem="ylE-C6-bF9" firstAttribute="centerY" secondItem="1p7-Jx-3MB" secondAttribute="centerY" id="NgQ-yo-x1l"/>
+                        <constraint firstItem="FBM-r6-w5D" firstAttribute="leading" secondItem="1p7-Jx-3MB" secondAttribute="leading" constant="8" id="Rz2-Gs-1au"/>
+                        <constraint firstAttribute="height" constant="49" id="Xgp-d8-kOL"/>
+                        <constraint firstAttribute="trailing" secondItem="ylE-C6-bF9" secondAttribute="trailing" constant="8" id="eQG-9b-v3c"/>
+                        <constraint firstItem="ylE-C6-bF9" firstAttribute="leading" secondItem="FBM-r6-w5D" secondAttribute="trailing" constant="15" id="eqS-d2-4bk"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -35,6 +68,9 @@
                 <constraint firstItem="bem-br-5q2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7TL-5u-TXj"/>
                 <constraint firstAttribute="bottom" secondItem="bem-br-5q2" secondAttribute="bottom" constant="-70" id="XDV-kv-Xw5"/>
                 <constraint firstItem="hr3-tr-jmZ" firstAttribute="leading" secondItem="bem-br-5q2" secondAttribute="leading" id="bJ0-Lx-X4o"/>
+                <constraint firstAttribute="trailing" secondItem="1p7-Jx-3MB" secondAttribute="trailing" id="cZQ-t2-pAb"/>
+                <constraint firstItem="hr3-tr-jmZ" firstAttribute="top" secondItem="1p7-Jx-3MB" secondAttribute="bottom" id="lWt-ur-Wok"/>
+                <constraint firstItem="1p7-Jx-3MB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tPy-h6-jUf"/>
                 <constraint firstItem="hr3-tr-jmZ" firstAttribute="bottom" secondItem="bem-br-5q2" secondAttribute="bottom" id="xsL-1M-zBO"/>
                 <constraint firstItem="bem-br-5q2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zPU-WP-9z8"/>
             </constraints>

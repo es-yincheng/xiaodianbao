@@ -37,5 +37,9 @@ typedef enum : NSUInteger {
                      success:(SuccessBlock)success
                      failure:(FailureBlock)failure;
 
+- (void)getTDDataWithCity:(City)city
+                pageIndex:(NSInteger)pageIndex
+                  success:(SuccessBlock)success
+                  failure:(FailureBlock)failure;
 
 @end

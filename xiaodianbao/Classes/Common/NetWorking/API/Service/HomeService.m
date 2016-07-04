@@ -68,7 +68,33 @@
                                failure:failure];
 }
 
-- (void)getZBBDataWithCity:(City)city pageIndex:(NSInteger)pageIndex success:(SuccessBlock)success failure:(FailureBlock)failure{
+- (void)getZBBDataWithCity:(City)city
+                 pageIndex:(NSInteger)pageIndex
+                   success:(SuccessBlock)success
+                   failure:(FailureBlock)failure{
+    //10
+    NSString *cityStr;
+    switch (city) {
+        case CityShanghai:
+            cityStr = @"1";
+            break;
+            
+        default:
+            cityStr = @"2";
+            break;
+    }
+
+    NSString *string = [NSString stringWithFormat:@"http://www.ushopal.com/api/v2/cstore/explore?city_id=%@&next_start=%ld&project_code=blackwidow&version=2.0.7",cityStr,pageIndex*20];
+    [[NetWorking sharedNetWorking] get:string
+                            parameters:nil
+                               success:success
+                               failure:failure];
+}
+
+- (void)getTDDataWithCity:(City)city
+                 pageIndex:(NSInteger)pageIndex
+                   success:(SuccessBlock)success
+                   failure:(FailureBlock)failure{
     //10
     NSString *cityStr;
     switch (city) {
@@ -81,10 +107,7 @@
             break;
     }
     
-    
-    
-    
-    NSString *string = [NSString stringWithFormat:@"http://www.ushopal.com/api/v2/cstore/explore?city_id=%@&next_start=%ld&project_code=blackwidow&version=2.0.7",cityStr,pageIndex*20];
+    NSString *string = [NSString stringWithFormat:@"http://http://www.ushopal.com/api/v2/store/exploration?city_id=%@&next_start=%ld&project_code=blackwidow&version=2.0.7",cityStr,pageIndex*20];
     [[NetWorking sharedNetWorking] get:string
                             parameters:nil
                                success:success
